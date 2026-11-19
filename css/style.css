@@ -1,0 +1,725 @@
+
+/* ========================================
+   1. VARIABLES GRAPHIQUES
+======================================== */
+
+:root {
+    --fond: #f8f6f0;
+    --texte: #34352f;
+    --lavande: #ded9ef;
+    --sauge: #dce6d9;
+    --accent: #77718f;
+    --blanc: #ffffff;
+
+    --carte-lavande: #E8E2F1;
+    --carte-sauge: #E4EBDD;
+    --carte-peche: #F2E7D9;
+    --carte-bleue: #DFEAF0;
+    --carte-rose: #F0E9EA;
+}
+
+/* ========================================
+   2. BASE DU SITE
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fond);
+    color: var(--texte);
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* ========================================
+   3. NAVIGATION
+======================================== */
+
+header {
+    padding: 25px 8%;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--texte);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    color: var(--texte);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--accent);
+}
+
+/* ========================================
+   4. ACCUEIL
+======================================== */
+
+.hero {
+    min-height: 75vh;
+    padding: 100px 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(
+        135deg,
+        var(--fond),
+        var(--lavande)
+    );
+}
+
+.surtitre {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.15;
+    max-width: 950px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+    display: block;
+}
+
+.introduction {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+/* ========================================
+   5. BOUTON
+======================================== */
+
+.bouton {
+    background-color: var(--texte);
+    color: var(--blanc);
+    padding: 14px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.bouton:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   6. SECTIONS
+======================================== */
+
+/*
+   Sections élargies :
+   auparavant : max-width 1200px et 12% de marge
+   maintenant : max-width 1560px et 8% de marge
+*/
+
+.section {
+    width: 100%;
+    max-width: 1560px;
+    padding: 90px 8%;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    max-width: 650px;
+}
+
+/* ========================================
+   7. COMPETENCES : INTRODUCTION
+======================================== */
+
+.skills-heading {
+    margin-bottom: 45px;
+}
+
+.skills-heading h2 {
+    font-size: clamp(38px, 5vw, 54px);
+    letter-spacing: -2px;
+}
+
+.skills-heading h2 span {
+    color: var(--accent);
+}
+
+.skills-intro {
+    max-width: 600px;
+    color: #77756f;
+    margin-top: 12px;
+}
+
+/* Certification ISTQB */
+
+.certification {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 28px;
+    padding: 10px 18px;
+
+    background: var(--lavande);
+    color: var(--texte);
+
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+
+/* ========================================
+   8. GRILLE DES CARTES
+======================================== */
+
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.skill-card {
+    min-width: 0;
+    padding: 28px;
+    border-radius: 18px;
+    color: #393832;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(50, 45, 60, 0.07);
+}
+
+/* Couleurs pastel */
+
+.skill-lavender {
+    background-color: var(--carte-lavande);
+}
+
+.skill-sage {
+    background-color: var(--carte-sauge);
+}
+
+.skill-peach {
+    background-color: var(--carte-peche);
+}
+
+.skill-blue {
+    background-color: var(--carte-bleue);
+}
+
+/* Environnement numérique sur toute la largeur */
+
+.skill-tools {
+    grid-column: 1 / -1;
+}
+
+
+/* ========================================
+   9. EN-TETES DES CARTES
+======================================== */
+
+.skill-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.skill-card-header h3 {
+    font-size: 23px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.skill-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.status-learning {
+    color: #66547E;
+}
+
+.status-acquired {
+    color: #536B50;
+}
+
+/* ========================================
+   10. LISTES DE COMPETENCES
+======================================== */
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.skill-list li::before {
+    content: "✳";
+    position: absolute;
+    left: 0;
+    opacity: 0.6;
+}
+
+.skill-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+
+/* ========================================
+   11. ENVIRONNEMENT NUMERIQUE
+======================================== */
+
+/* Carte environnement numérique */
+
+.skill-tools {
+    grid-column: 1 / -1;
+}
+
+/* Organisation des catégories */
+
+.tool-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 45px;
+    align-items: start;
+    margin-top: 25px;
+}
+
+/* Catégories d'outils */
+
+.tool-group {
+    min-width: 0;
+    margin: 0;
+}
+
+.tool-group h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 9px;
+    letter-spacing: 0.3px;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(60, 60, 60, 0.13);
+}
+
+/* Grille des vignettes */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+}
+
+/* Vignettes */
+
+.tool {
+    min-width: 0;
+    min-height: 112px;
+    padding: 13px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    text-align: center;
+    background: rgba(255, 255, 255, 0.48);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+
+    position: relative;
+    z-index: 1;
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+}
+
+/* Logos */
+
+.tool img,
+.tool-monogram {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+/* Vignettes sans logo */
+
+.tool-monogram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    background: rgba(80, 75, 110, 0.12);
+    color: #55506c;
+
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+
+/* Logos des logiciels Adobe */
+
+.adobe-ps {
+    background: #001e36;
+    color: #31a8ff;
+    border-radius: 6px;
+    font-size: 17px;
+}
+
+.adobe-ai {
+    background: #330000;
+    color: #ff9a00;
+    border-radius: 6px;
+    font-size: 17px;
+}
+
+.adobe-id {
+    background: #49021f;
+    color: #ff3366;
+    border-radius: 6px;
+    font-size: 17px;
+}
+
+
+/* Nom des outils */
+
+.tool > span:not(.tool-monogram) {
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Niveau de maîtrise */
+
+.tool small {
+    font-size: 0.7rem;
+    opacity: 0.65;
+    line-height: 1.3;
+}
+
+/* Agrandissement au survol */
+
+@media (hover: hover) {
+    .tool:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 24px rgba(50, 45, 70, 0.12);
+        z-index: 2;
+    }
+
+    .tool:hover img,
+    .tool:hover .tool-monogram {
+        transform: scale(1.12);
+    }
+}
+
+/* Adaptation sur tablette et mobile */
+
+@media (max-width: 700px) {
+    .tool-groups {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Adaptation sur petits mobiles */
+
+@media (max-width: 450px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ========================================
+   12. LANGUES INTEGREES AU SAVOIR-ETRE
+======================================== */
+
+.languages-inline {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(60, 60, 60, 0.12);
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+
+    font-size: 0.85rem;
+}
+
+.languages-inline > span {
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.languages-inline p {
+    margin: 0;
+}
+
+.languages-inline small {
+    opacity: 0.65;
+}
+
+/* ========================================
+   13. PIED DE PAGE
+======================================== */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background-color: var(--sauge);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   14. RESPONSIVE : TABLETTES
+======================================== */
+
+@media (max-width: 1050px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-tools {
+        grid-column: 1 / -1;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* ========================================
+   15. RESPONSIVE : MOBILES
+======================================== */
+
+@media (max-width: 700px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        min-height: 65vh;
+        padding: 70px 7%;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-tools {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .skill-card {
+        padding: 23px;
+    }
+
+    .skill-card-header h3 {
+        font-size: 21px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .tool {
+        min-height: 95px;
+        padding: 10px 5px;
+    }
+
+    .tool > span:not(.tool-monogram) {
+        font-size: 11px;
+    }
+
+    .tool small {
+        font-size: 9px;
+    }
+}
+
+
+/* ========================================
+   16. ACCESSIBILITE : ANIMATIONS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* ========================================
+   LISTES DE COMPETENCES INTERACTIVES
+======================================== */
+
+.skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.skill-list li {
+    position: relative;
+    padding: 9px 10px 9px 27px;
+    margin: 0;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+
+    transition: background 0.25s ease,
+                transform 0.25s ease,
+                color 0.25s ease;
+}
+
+/* Petite pastille */
+
+.skill-list li::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 17px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.55;
+    transition: transform 0.25s ease,
+                opacity 0.25s ease;
+}
+
+/* Effet au survol */
+
+@media (hover: hover) {
+    .skill-list li:hover {
+        background: rgba(255, 255, 255, 0.45);
+        transform: translateX(5px);
+    }
+
+    .skill-list li:hover::before {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   A PROPOS
+======================================== */
+
+/* Espacement des paragraphes */
+
+#apropos p:not(.surtitre) {
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+
+#apropos p:last-child {
+    margin-bottom: 0;
+}
+
+/* Largeur des paragraphes À propos */
+
+#apropos p:not(.surtitre) {
+    width: 70%;
+    max-width: 90%;
+}
