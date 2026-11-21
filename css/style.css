@@ -214,6 +214,20 @@ header {
     margin: 0;
 }
 
+/* Espacement des boutons sur mobile */
+@media (max-width: 650px) {
+    .hero-navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .hero-navigation ul li {
+        margin-bottom: 12px;
+    }
+}
+
+
 /* ========================================
    8. GRILLE DES CARTES
 ======================================== */
