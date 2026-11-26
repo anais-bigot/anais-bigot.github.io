@@ -142,11 +142,6 @@ header {
    6. SECTIONS
 ======================================== */
 
-/*
-   Sections élargies :
-   auparavant : max-width 1200px et 12% de marge
-   maintenant : max-width 1560px et 8% de marge
-*/
 
 .section {
     width: 100%;
@@ -204,26 +199,29 @@ header {
     letter-spacing: 0.3px;
 }
 
-/* Navigation de l'introduction */
+
+/* ========================================
+   NAVIGATION DE L'INTRODUCTION
+======================================== */
+
+/* Affichage ordinateur */
 .hero-navigation ul {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     gap: 12px;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Espacement des boutons sur mobile */
-@media (max-width: 650px) {
+/* Affichage mobile */
+@media screen and (max-width: 650px) {
     .hero-navigation ul {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0;
-    }
-
-    .hero-navigation ul li {
-        margin-bottom: 12px;
+        gap: 12px;
     }
 }
 
@@ -748,11 +746,15 @@ footer {
 }
 
 
+
+
 /* ========================================
-   PARCOURS PROFESSIONNEL ET FORMATIONS
+   12. PARCOURS PROFESSIONNEL ET FORMATIONS
 ======================================== */
 
-/* Organisation des deux cartes */
+
+/* 12.1 ORGANISATION DE LA MISE EN PAGE */
+
 .parcours-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -760,7 +762,24 @@ footer {
     align-items: start;
 }
 
-/* Cartes */
+/* Bloc test logiciel en pleine largeur */
+.test-card {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Titre sur toute la largeur */
+.test-card h3 {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+
+/* 12.2 APPARENCE GÉNÉRALE DES CARTES */
+
 .parcours-card {
     padding: 28px;
     border-radius: 18px;
@@ -770,7 +789,7 @@ footer {
 
 /* Couleurs des cartes */
 .experiences-card {
-    background: var(--carte-lavande);
+    background: #E5ECF4;
 }
 
 .formations-card {
@@ -783,7 +802,74 @@ footer {
     margin: 0 0 28px;
 }
 
-/* Expériences et formations */
+
+/* 12.3 MISE EN AVANT DU PORTFOLIO */
+
+.portfolio-mise-en-avant {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #F0EDF5;
+    padding: 28px;
+    border-radius: 14px;
+    margin-bottom: 0;
+}
+
+/* Titre du portfolio */
+.portfolio-mise-en-avant h4 {
+    margin-bottom: 12px;
+}
+
+/* Description du portfolio */
+.portfolio-mise-en-avant > p:not(.parcours-date) {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Bouton du portfolio */
+.bouton-portfolio {
+    display: inline-block;
+    margin-top: auto;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Effet au survol du bouton */
+.bouton-portfolio:hover {
+    filter: brightness(0.9);
+    transform: translateY(-2px);
+}
+
+
+/* 12.4 PRÉSENTATION DES EXPÉRIENCES À VENIR */
+
+/* Cartes du stage et des projets */
+.experience-a-venir {
+    margin-top: 0;
+    padding: 20px;
+    border: 1px solid rgba(60, 60, 60, 0.13);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* Mention des informations à venir */
+.experience-info {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+
+/* 12.5 PRÉSENTATION DES EXPÉRIENCES ET FORMATIONS */
+
 .experience,
 .formation {
     padding-bottom: 22px;
@@ -791,11 +877,19 @@ footer {
     border-bottom: 1px solid rgba(60, 60, 60, 0.13);
 }
 
+/* Suppression de la séparation sur le dernier élément */
 .experience:last-child,
 .formation:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
     border-bottom: none;
+}
+
+/* Conservation de l'espace intérieur du dernier projet */
+.test-card .experience-a-venir:last-child {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(60, 60, 60, 0.13);
 }
 
 /* Dates */
@@ -822,7 +916,7 @@ footer {
     line-height: 1.5;
 }
 
-/* Missions */
+/* Missions et descriptions */
 .experience ul {
     padding-left: 18px;
     margin: 10px 0 0;
@@ -843,13 +937,27 @@ footer {
     line-height: 1.5;
 }
 
-/* Adaptation tablette et mobile */
+
+/* 12.6 ADAPTATION TABLETTE ET MOBILE */
+
 @media (max-width: 750px) {
+
     .parcours-grid {
         grid-template-columns: 1fr;
     }
-}
 
+    .test-card {
+        grid-template-columns: 1fr;
+    }
+
+    .test-card h3 {
+        grid-column: 1;
+    }
+
+    .portfolio-mise-en-avant {
+        grid-row: auto;
+    }
+}
 
 
 /* ========================================
@@ -1078,3 +1186,5 @@ footer {
         display: none;
     }
 }
+
+
